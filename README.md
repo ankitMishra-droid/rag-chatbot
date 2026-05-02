@@ -1,6 +1,6 @@
-# 🤖 ARIA — Adaptive Responsive Intelligent Assistant
+# 🤖 Chakra — Adaptive Responsive Intelligent Assistant
 
-ARIA is a full-stack AI chatbot built from scratch using a custom **Retrieval-Augmented Generation (RAG)** architecture.
+Chakra is a full-stack AI chatbot built from scratch using a custom **Retrieval-Augmented Generation (RAG)** architecture.
 
 It combines:
 
@@ -102,7 +102,7 @@ chatbot_llm/
 
 ---
 
-## 🔑 Environment Variables
+## 🔑 Environment VChakrables
 
 Create a `.env` file:
 

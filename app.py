@@ -27,7 +27,7 @@ logger = logging.getLogger(__name__)
 # APP INIT
 # ─────────────────────────────────────────────
 app = Flask(__name__)
-app.secret_key = os.environ.get("SECRET_KEY", "chatbot-secret")
+app.secret_key = os.environ.get("SECRET_KEY", "chakra-secret")
 
 CORS(app)
 socketio = SocketIO(app, cors_allowed_origins="*", async_mode="threading")
@@ -35,7 +35,7 @@ socketio = SocketIO(app, cors_allowed_origins="*", async_mode="threading")
 # ─────────────────────────────────────────────
 # INIT SYSTEMS
 # ─────────────────────────────────────────────
-logger.info("Initializing chatbot systems...")
+logger.info("Initializing chakra systems...")
 
 rag = RAGEngine(db_path="./chroma_db")
 llm = LLMHandler()
@@ -231,5 +231,5 @@ def chat():
 # ─────────────────────────────────────────────
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 5000))
-    logger.info(f"Starting chatbot on port {port}")
+    logger.info(f"Starting chakra on port {port}")
     socketio.run(app, host="0.0.0.0", port=port)

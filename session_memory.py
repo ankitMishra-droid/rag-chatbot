@@ -75,13 +75,13 @@ class SessionMemory:
         return self.sessions[session_id]["history"][-n_messages:]
 
     def update_context(self, session_id: str, key: str, value):
-        """Update session context vchatbotble"""
+        """Update session context vchakrable"""
         if session_id in self.sessions:
             self.sessions[session_id]["context"][key] = value
             self.sessions[session_id]["last_active"] = datetime.now().isoformat()
 
     def get_context(self, session_id: str, key: str, default=None):
-        """Get session context vchatbotble"""
+        """Get session context vchakrable"""
         if session_id not in self.sessions:
             return default
         return self.sessions[session_id]["context"].get(key, default)

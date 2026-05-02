@@ -1,9 +1,10 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>chatbot — Adaptive Responsive Intelligent Assistant</title>
+<title>chakra — Adaptive Responsive Intelligent Assistant</title>
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
 <style>
   :root {
@@ -22,7 +23,7 @@
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
 
-  body {
+  html, body {
     font-family: 'DM Sans', sans-serif;
     background: var(--bg);
     color: var(--text);
@@ -30,14 +31,13 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    overflow: hidden;
+    overflow-x: hidden;
     position: relative;
   }
 
-  /* Animated background */
   .bg-grid {
     position: fixed; inset: 0; z-index: 0;
-    background-image: 
+    background-image:
       linear-gradient(rgba(0,212,255,0.03) 1px, transparent 1px),
       linear-gradient(90deg, rgba(0,212,255,0.03) 1px, transparent 1px);
     background-size: 50px 50px;
@@ -56,10 +56,10 @@
   .blob2 { width: 400px; height: 400px; background: var(--accent2); bottom: -100px; left: -100px; animation-delay: -4s; }
   @keyframes blobPulse { from { transform: scale(1) rotate(0deg); } to { transform: scale(1.2) rotate(20deg); } }
 
-  /* Main container */
   .container {
     position: relative; z-index: 1;
-    width: 100%; max-width: 440px;
+    width: 100%;
+    max-width: 440px;
     padding: 24px;
     animation: fadeUp 0.6s cubic-bezier(0.16,1,0.3,1) forwards;
   }
@@ -68,7 +68,6 @@
     to { opacity: 1; transform: translateY(0); }
   }
 
-  /* Logo */
   .logo {
     text-align: center;
     margin-bottom: 40px;
@@ -109,7 +108,6 @@
     margin-top: 4px;
   }
 
-  /* Card */
   .card {
     background: var(--surface);
     border: 1px solid var(--border);
@@ -119,7 +117,6 @@
     box-shadow: 0 0 0 1px rgba(0,212,255,0.05), 0 40px 80px rgba(0,0,0,0.5);
   }
 
-  /* Tabs */
   .tabs {
     display: flex;
     background: var(--surface2);
@@ -137,6 +134,7 @@
     border-radius: 10px;
     cursor: pointer;
     transition: all 0.2s;
+    -webkit-tap-highlight-color: transparent;
   }
   .tab-btn.active {
     background: var(--surface);
@@ -144,7 +142,6 @@
     box-shadow: 0 2px 8px rgba(0,0,0,0.3);
   }
 
-  /* Form */
   .tab-content { display: none; }
   .tab-content.active { display: block; animation: fadeIn 0.3s ease; }
   @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
@@ -170,6 +167,8 @@
     font-size: 15px;
     outline: none;
     transition: all 0.2s;
+    -webkit-appearance: none;
+    appearance: none;
   }
   .form-group input:focus {
     border-color: var(--accent);
@@ -190,6 +189,8 @@
     transition: all 0.2s;
     position: relative; overflow: hidden;
     margin-top: 4px;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
   }
   .btn-primary:hover { transform: translateY(-1px); box-shadow: 0 8px 30px rgba(0,212,255,0.25); }
   .btn-primary:active { transform: translateY(0); }
@@ -236,6 +237,8 @@
     font-size: 14px;
     cursor: pointer;
     transition: all 0.2s;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
   }
   .guest-btn:hover { border-color: var(--accent); color: var(--accent); background: var(--accent-glow); }
 
@@ -244,6 +247,126 @@
     color: var(--muted);
     font-size: 12px;
     margin-top: 24px;
+  }
+
+  /* ── Responsive ── */
+
+  /* Large tablets and small laptops */
+  @media (max-width: 480px) {
+    .container {
+      padding: 16px;
+    }
+    .card {
+      padding: 24px 20px;
+      border-radius: 20px;
+    }
+    .logo {
+      margin-bottom: 28px;
+    }
+    .logo-icon {
+      width: 56px; height: 56px;
+      font-size: 24px;
+      border-radius: 16px;
+    }
+    .logo h1 {
+      font-size: 26px;
+    }
+    .logo p {
+      font-size: 10px;
+      letter-spacing: 1.5px;
+    }
+    .tab-btn {
+      font-size: 13px;
+      padding: 9px 6px;
+    }
+    .form-group input {
+      font-size: 16px; /* prevents iOS zoom on focus */
+      padding: 13px 14px;
+    }
+    .btn-primary {
+      font-size: 15px;
+      padding: 14px;
+    }
+    .guest-btn {
+      padding: 12px;
+    }
+  }
+
+  /* Small phones (iPhone SE, Galaxy A) */
+  @media (max-width: 360px) {
+    .container {
+      padding: 12px;
+    }
+    .card {
+      padding: 20px 16px;
+      border-radius: 16px;
+    }
+    .logo {
+      margin-bottom: 22px;
+    }
+    .logo-icon {
+      width: 48px; height: 48px;
+      font-size: 20px;
+      margin-bottom: 12px;
+    }
+    .logo h1 {
+      font-size: 22px;
+    }
+    .tabs {
+      margin-bottom: 20px;
+    }
+    .form-group {
+      margin-bottom: 12px;
+    }
+    .footer-text {
+      margin-top: 16px;
+      font-size: 11px;
+    }
+  }
+
+  /* Very short screens / landscape phones */
+  @media (max-height: 600px) and (orientation: landscape) {
+    body {
+      align-items: flex-start;
+      padding: 12px 0;
+      overflow-y: auto;
+    }
+    .logo {
+      margin-bottom: 16px;
+    }
+    .logo-icon {
+      width: 40px; height: 40px;
+      font-size: 18px;
+      margin-bottom: 8px;
+    }
+    .logo h1 { font-size: 20px; }
+    .logo p { display: none; }
+    .card { padding: 20px; }
+    .form-group { margin-bottom: 10px; }
+    .form-group input { padding: 10px 14px; }
+    .btn-primary { padding: 12px; }
+    .divider { margin: 12px 0; }
+  }
+
+  /* Tablets (portrait) */
+  @media (min-width: 481px) and (max-width: 768px) {
+    .container {
+      max-width: 420px;
+      padding: 20px;
+    }
+  }
+
+  /* Wide screens — center comfortably */
+  @media (min-width: 1024px) {
+    .container {
+      max-width: 460px;
+    }
+  }
+
+  /* Blob scaling for small screens */
+  @media (max-width: 480px) {
+    .blob1 { width: 300px; height: 300px; }
+    .blob2 { width: 250px; height: 250px; }
   }
 </style>
 </head>
@@ -256,7 +379,7 @@
 <div class="container">
   <div class="logo">
     <div class="logo-icon">🤖</div>
-    <h1>chatbota</h1>
+    <h1>chakraa</h1>
     <p>Adaptive Responsive Intelligent Assistant</p>
   </div>
 
@@ -277,7 +400,7 @@
         <label>Password</label>
         <input type="password" id="login-password" placeholder="••••••••" autocomplete="current-password">
       </div>
-      <button class="btn-primary" id="login-btn" onclick="handleLogin()">Sign In to chatbot</button>
+      <button class="btn-primary" id="login-btn" onclick="handleLogin()">Sign In to chakra</button>
       <div class="divider">or</div>
       <button class="guest-btn" onclick="handleGuestLogin()">Continue as Guest</button>
     </div>
@@ -329,7 +452,7 @@ async function handleLogin() {
   const password = document.getElementById('login-password').value;
   hideAlert('login-alert');
   if (!username || !password) return showAlert('login-alert', 'Please enter username and password');
-  setLoading('login-btn', true, 'Sign In to chatbot');
+  setLoading('login-btn', true, 'Sign In to chakra');
   try {
     const res = await fetch('/api/auth/login', {
       method: 'POST',
@@ -338,22 +461,21 @@ async function handleLogin() {
     });
     const data = await res.json();
     if (res.ok) {
-      localStorage.setItem('chatbot_token', data.token);
-      localStorage.setItem('chatbot_user', JSON.stringify(data.user));
-      localStorage.setItem('chatbot_session', data.session_id);
+      localStorage.setItem('chakra_token', data.token);
+      localStorage.setItem('chakra_user', JSON.stringify(data.user));
+      localStorage.setItem('chakra_session', data.session_id);
       window.location.href = '/dashboard';
     } else {
       showAlert('login-alert', data.error || 'Login failed');
-      setLoading('login-btn', false, 'Sign In to chatbot');
+      setLoading('login-btn', false, 'Sign In to chakra');
     }
   } catch(e) {
     showAlert('login-alert', 'Connection error. Is the server running?');
-    setLoading('login-btn', false, 'Sign In to chatbot');
+    setLoading('login-btn', false, 'Sign In to chakra');
   }
 }
 
 async function handleGuestLogin() {
-  // Login with guest credentials
   const res = await fetch('/api/auth/login', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
@@ -361,9 +483,9 @@ async function handleGuestLogin() {
   });
   if (res.ok) {
     const data = await res.json();
-    localStorage.setItem('chatbot_token', data.token);
-    localStorage.setItem('chatbot_user', JSON.stringify(data.user));
-    localStorage.setItem('chatbot_session', data.session_id);
+    localStorage.setItem('chakra_token', data.token);
+    localStorage.setItem('chakra_user', JSON.stringify(data.user));
+    localStorage.setItem('chakra_session', data.session_id);
     window.location.href = '/dashboard';
   } else {
     showAlert('login-alert', 'Guest access not available');
@@ -403,7 +525,6 @@ async function handleRegister() {
   }
 }
 
-// Enter key support
 document.addEventListener('keydown', e => {
   if (e.key === 'Enter') {
     const activeTab = document.querySelector('.tab-content.active').id;
@@ -412,8 +533,7 @@ document.addEventListener('keydown', e => {
   }
 });
 
-// Redirect if already logged in
-const token = localStorage.getItem('chatbot_token');
+const token = localStorage.getItem('chakra_token');
 if (token) {
   fetch('/api/auth/verify', { headers: { Authorization: `Bearer ${token}` } })
     .then(r => r.ok && (window.location.href = '/dashboard'))

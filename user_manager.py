@@ -13,7 +13,7 @@ from typing import Dict, Optional, List, Tuple
 
 logger = logging.getLogger(__name__)
 
-SECRET_KEY = os.environ.get("SECRET_KEY", "chatbot-super-secret-key-change-in-production-2024")
+SECRET_KEY = os.environ.get("SECRET_KEY", "chakra-super-secret-key-change-in-production-2024")
 JWT_EXPIRY_HOURS = 24
 
 # Rule-based permission system
@@ -68,7 +68,7 @@ class UserManager:
     def _ensure_admin(self):
         """Create default admin if none exists"""
         if not any(u.get("role") == "admin" for u in self.users.values()):
-            self.create_user("admin", "admin123", "admin@chatbot.ai", "admin")
+            self.create_user("admin", "admin123", "admin@chakra.ai", "admin")
             logger.info("Default admin created: admin / admin123")
 
     def create_user(self, username: str, password: str, email: str = "", 

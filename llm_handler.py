@@ -35,7 +35,7 @@ HF_API_URL = f"https://api-inference.huggingface.co/models/{HF_MODEL}"
 
 # ─────────────────────────────────────────────
 
-SYSTEM_PROMPT = """You are chatbot (Adaptive Responsive Intelligent Assistant), a helpful AI assistant."""
+SYSTEM_PROMPT = """You are chakra (Adaptive Responsive Intelligent Assistant), a helpful AI assistant."""
 
 # ─────────────────────────────────────────────
 # HELPERS
