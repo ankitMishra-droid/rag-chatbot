@@ -119,7 +119,7 @@ SECRET_KEY=your_secret_key
 
 ```bash
 # 1. Clone repo
-git clone https://github.com/your-username/rag-chatbot.git
+git clone https://github.com/ankitMishra-droid/rag-chatbot.git
 
 # 2. Go to project
 cd rag-chatbot
@@ -138,54 +138,3 @@ http://localhost:5000
 ```
 
 ---
-
-## 🌍 Deployment (Free)
-
-You can deploy on:
-
-* Render (recommended)
-* Railway
-
-### Steps:
-
-1. Push code to GitHub
-2. Connect repo to Render
-3. Set environment variables
-4. Deploy
-
----
-
-## ⚠️ Limitations
-
-* ChromaDB (local) is not persistent on free hosting
-* SentenceTransformer model is heavy for free tier
-
----
-
-## 🚀 Future Improvements
-
-* Replace ChromaDB with cloud vector DB (Pinecone / Supabase)
-* Add streaming responses (ChatGPT-like typing)
-* Improve memory extraction using NLP
-* Add voice assistant features
-* Scale with Docker + Kubernetes
-
----
-
-## 👨‍💻 Author
-
-**Ankit Mishra**
-Frontend & Full Stack Developer
-Specializing in AI-integrated web applications
-
----
-
-## ⭐ If you like this project
-
-Give it a ⭐ on GitHub and feel free to contribute!
-
----
-
-## 💡 Resume Line
-
-> Built a full-stack AI chatbot using a custom RAG pipeline with ChromaDB, integrating multi-LLM support (Groq, Gemini) and persistent user memory for personalized conversational AI.
